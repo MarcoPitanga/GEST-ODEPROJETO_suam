@@ -2,7 +2,7 @@ const cors = require("cors");
 const express = require("express");
 const db = require("./db");
 const server = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
