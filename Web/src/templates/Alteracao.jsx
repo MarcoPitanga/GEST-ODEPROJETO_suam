@@ -16,7 +16,7 @@ export const Alteracao = () => {
   const handleClickBuscar = async () => {
     setAntigaData('')
     setNovaData('')
-    if (cpf >= 10000000000 && cpf <= 99999999999) {
+    if (cpf.length == 14) {
       const cliente = await apiUsuario.buscarCliente(cpf)
       if (cliente) {
         setAntigaData(cliente.data)
@@ -64,7 +64,7 @@ export const Alteracao = () => {
   return (
     <Layout titulo="ALTERAÇÃO">
       <div className="w-full flex justify-between items-center">
-        <Input type="number" valor={cpf} onChange={setCpf} titulo="CPF" />
+        <Input type="number" cpf="true" valor={cpf} onChange={setCpf} titulo="CPF" />
         <Button text="Buscar" onClick={handleClickBuscar} className={`w-1/3 h-1/3 ml-5 mt-2`} />
       </div>
       {!antigaData && <p className="text-center font-semibold">{feedback}</p>}

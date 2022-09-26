@@ -6,7 +6,7 @@ const port = process.env.PORT || 8000;
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
-server.use(cors());
+server.use(cors({ origin: "*" }));
 
 server.post("/cadastrar", async (req, res) => {
   db.cadastrar(req.body.login, req.body.senha);

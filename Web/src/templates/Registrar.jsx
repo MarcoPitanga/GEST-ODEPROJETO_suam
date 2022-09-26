@@ -20,7 +20,7 @@ export const Registrar = () => {
 
       const dataAtual = new Date()
       const dataInput = new Date(ano, mes - 1, dia)
-      if (cpf < 10000000000 || cpf > 99999999999) {
+      if (cpf.length < 14) {
         setFeedback('CPF inválido')
       } else if (dataAtual.valueOf() >= dataInput.valueOf()) {
         setFeedback('Data inválida')
@@ -39,7 +39,7 @@ export const Registrar = () => {
   }
   return (
     <Layout titulo="REGISTRAR">
-      <Input type="number" valor={cpf} onChange={setCpf} titulo="CPF" />
+      <Input type="number" valor={cpf} cpf="true" onChange={setCpf} titulo="CPF" />
       <Input type="text" valor={nome} onChange={setNome} titulo="Nome" />
       <div className="grid grid-cols-2 md:gap-2 mt-6">
         <label className="text-[#5DC5F1] p-3 font-black">NOVA DATA</label>
