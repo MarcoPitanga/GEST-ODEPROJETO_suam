@@ -65,7 +65,7 @@ export class Usuario {
   }
 
   deletarAgendamento(id) {
-    api.delete(`deletarAgendamento/${id}`)
+    api.get(`deletarAgendamento/${id}`)
   }
 
   async listar() {
