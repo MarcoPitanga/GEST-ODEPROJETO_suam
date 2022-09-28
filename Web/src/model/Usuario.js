@@ -13,7 +13,7 @@ export class Usuario {
       login,
       senha
     })
-    const resultado = data
+    const [resultado] = data
 
     if (resultado) {
       this.id = resultado.id
@@ -36,8 +36,7 @@ export class Usuario {
     const { data } = await api.post(`buscarUsuario`, {
       login
     })
-    const resultado = data
-
+    const [resultado] = data
     if (resultado) {
       return resultado
     } else {
@@ -49,7 +48,7 @@ export class Usuario {
     const { data } = await api.post(`buscarCliente`, {
       cpf
     })
-    const resultado = data
+    const [resultado] = data
 
     if (resultado) {
       return resultado
